@@ -84,3 +84,27 @@ index.HTML
 </modal-component> -->
 
     <!-- <love-component v-if='showSecondLoveComponent'>GoGoGo</love-component> // something I dont understand -->
+
+db.js
+
+SELECT \* FROM images
+WHERE id < \$i
+ORDER BY id DESC
+LIMIT 20
+
+-   check if last image in your id has the id of one
+    --> bad
+
+SELECT \* FROM images
+ORDER BY id ASC
+LIMIT 1
+
+--> get id of first image in database
+
+SELECT id,
+(SELECT id FROM images ORDER BY
+id ASC LIMIT 1)
+AS "lowestId" FROM images
+WHERE id < 10
+ORDER BY id DESC
+LIMIT 20

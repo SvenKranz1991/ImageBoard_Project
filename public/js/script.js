@@ -1,6 +1,3 @@
-// inside of JS directory, create "script.js"
-// here is where ALL the Vue code will go!
-
 (function() {
     new Vue({
         el: ".main",
@@ -12,7 +9,6 @@
             username: "",
             file: null,
             showModal: false
-            // ,showSecondLoveComponent: false // closing cities
         }, // closes data
         mounted: function() {
             var self = this;
@@ -27,20 +23,15 @@
                     console.log("err in GET /images: ", err);
                 }); // any get request you want
 
-            // I dont know where and still paste it here
-
-            axios.post("/comment", {
-                imageId: this.id,
-                comment: this.commentText,
-                username: this.commentUsername
-            });
-
-            // modal
+            // axios.post("/comment", {
+            //     imageId: this.id,
+            //     comment: this.commentText,
+            //     username: this.commentUsername
+            // });
         }, // closes mounted
         methods: {
             handleClick: function() {
                 // this function runs when user selects an image on the file input field
-
                 // FormData API is necessary for sending FILES from client to server
 
                 var formData = new FormData();
@@ -73,17 +64,7 @@
             },
             clicked: function(id) {
                 this.showModal = id;
-                console.log("clicked");
-                console.log(this.showModal);
-
-                axios
-                    .get("/images/:id", this.showModal)
-                    .then(function(resp) {
-                        console.log("resp in Post /images/:id", resp);
-                    })
-                    .catch(function(err) {
-                        "error in POST /images id", err;
-                    });
+                console.log("clicked Id: ", this.showModal);
             } // closes handleChange
         }
     }); // closes Vue

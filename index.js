@@ -16,8 +16,6 @@ app.use(
     require("body-parser").urlencoded({
         extended: false
     })
-
-    // require("body-parser").json; -- modal something
 );
 
 // Disk Storage
@@ -57,28 +55,12 @@ app.get("/images", function(req, res) {
         .catch(err => {
             console.log("Error in getRecentPictures: ", err);
         });
-    // Images through Query
-});
-
-app.get("/images", function(req, res) {
-    console.log(res);
 });
 
 // Upload Route
 
 app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     console.log("My Request in Index: ", req);
-
-    // console.log(
-    //     "Title: ",
-    //     req.body.title,
-    //     "Username: ",
-    //     req.body.username,
-    //     "Description: ",
-    //     req.body.description,
-    //     "Filename: ",
-    //     req.file.filename
-    // );
 
     let username = req.body.username;
     let title = req.body.title;
@@ -106,7 +88,7 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     //     res.json({
     //         file: req.file.filename
     //     });
-    //     // res.json({ success: true });
+    // res.json({ success: true });
     // } else {
     //     res.json({ success: false });
     // }
@@ -114,12 +96,12 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
 
 // Testing Loading single Image
 
+// app.get("/images/:id", function(req, res){})
 app.get("/images/:id", function(req, res) {
-    console.log("My Response from Axios: ", req);
     db.getMeOneImageToShow(req.params.id)
-        .then(singleImage => {
-            console.log(singleImage);
-            res.json(singleImage.rows[0]);
+        .then(result => {
+            console.log("getMeOneImageResult: ", result);
+            res.json(result.rows[0]);
         })
         .catch(err => {
             console.log("Error In getMeOneImageToShow: ", err);

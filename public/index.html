@@ -17,11 +17,10 @@
 
             <!-- FORM -->
             <form>
-                <input v-model="title" name='title' placeholder="title" type='text'>
-                <input v-model="description" name='description' placeholder="description" type='text'>
-                <input v-model="username" type="username" placeholder="username" type="text">
-                <input  name='file' type='file' accept='image/*' @change='handleChange'>
-                <!--  -->
+                    <input v-model="title" name='title' placeholder="title" type='text'>
+                    <input v-model="description" name='description' placeholder="description" type='text'>
+                    <input v-model="username" type="username" placeholder="username" type="text">
+                    <input  name='file' type='file' accept='image/*' @change='handleChange'>
                 <button @click.prevent.default="handleClick">Submit</button>
             </form>
 
@@ -36,30 +35,31 @@
             <div class="imagewrapper"v-for="image in images">
 
                 <img :src="image.url" alt="image" class="imagepost" @click="clicked(image.id)">
-                <!-- {image.id} -->
                     <p class="imagetext">{{image.title}}</p>
-                    <p v-else>no Image!!!!!</p>
-
+                    <p v-else>No Image</p>
             </div>
         </div>
 
     </body>
 
-            <!-- SCRIPTS -->
-    <footer>
+    <!-- SCRIPTS -->
+
         <script type="text/x-template" id="modal-template">
             <transition name="modal">
-            <div class="modalMask">
-                <!-- <img :src='image.url' alt="modalImageTest" class="IMG-container"> -->
-                <h1>{{id}}</h1>
-                <button class="modal-btn" @click="$emit('close')">OK</button>
-            </div>
-        </transition>
+                <div class="modalMask">
+                <div class="wrapper">
+                    <h1>Photo - {{id}}</h1>
+                 <img :src='showimage.url' alt="modalImageTest" class="IMG-container">
+                    <button class="modal-btn" @click="$emit('close')">OK</button>
+                </div>
+                </div>
+            </transition>
         </script>
         <script src="/js/vue.js"></script>
         <script src="/js/axios.min.js"></script>
         <script src=“https://code.jquery.com/jquery-3.3.1.min.js“></script>
         <script src="/js/component.js"></script>
         <script src="/js/script.js"></script>
+    <footer>
     </footer>
 </html>

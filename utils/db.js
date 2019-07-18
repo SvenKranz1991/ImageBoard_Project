@@ -35,7 +35,13 @@ exports.insertPicture = function insertPicture(
 //////// FOR TESTING WITH ONE IMAGE
 
 exports.getMeOneImageToShow = function getMeOneImageToShow(id) {
-    return dbUrl.query(`SELECT * FROM images WHERE id = ${id}`);
+    return dbUrl.query(
+        `SELECT *
+        FROM images
+        WHERE id = $1;
+        `,
+        [id]
+    );
 };
 
 // exports.getRecentPictures = function getRecentPictures() {
