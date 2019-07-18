@@ -1,10 +1,65 @@
-<!doctype html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <script src="/js/vue.js"></script>
-    <script src="/js/axios.min.js"></script>
-</body>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <div class="main">
+
+        <div class="singleImageWrapper">
+            <modal-component v-if="showModal" :id="showModal" @close="showModal=false">
+            </modal-component>
+        </div>
+
+            <h1>Welcome!! I love Pixels</h1>
+
+            <!-- FORM -->
+            <form>
+                <input v-model="title" name='title' placeholder="title" type='text'>
+                <input v-model="description" name='description' placeholder="description" type='text'>
+                <input v-model="username" type="username" placeholder="username" type="text">
+                <input  name='file' type='file' accept='image/*' @change='handleChange'>
+                <!--  -->
+                <button @click.prevent.default="handleClick">Submit</button>
+            </form>
+
+
+
+
+
+    <!-- IMAGE SECTION -->
+    <h1>Latest images</h1>
+
+        <div class="image" v-if="images.length > 0">
+            <div class="imagewrapper"v-for="image in images">
+
+                <img :src="image.url" alt="image" class="imagepost" @click="clicked(image.id)">
+                <!-- {image.id} -->
+                    <p class="imagetext">{{image.title}}</p>
+                    <p v-else>no Image!!!!!</p>
+
+            </div>
+        </div>
+
+    </body>
+
+            <!-- SCRIPTS -->
+    <footer>
+        <script type="text/x-template" id="modal-template">
+            <transition name="modal">
+            <div class="modalMask">
+                <!-- <img :src='image.url' alt="modalImageTest" class="IMG-container"> -->
+                <h1>{{id}}</h1>
+                <button class="modal-btn" @click="$emit('close')">OK</button>
+            </div>
+        </transition>
+        </script>
+        <script src="/js/vue.js"></script>
+        <script src="/js/axios.min.js"></script>
+        <script src=“https://code.jquery.com/jquery-3.3.1.min.js“></script>
+        <script src="/js/component.js"></script>
+        <script src="/js/script.js"></script>
+    </footer>
 </html>
