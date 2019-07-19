@@ -8,7 +8,7 @@
                 created_at: "",
                 description: "",
                 username: "",
-                comment: []
+                comments: []
             };
         },
         props: ["showmodal"],
@@ -35,6 +35,21 @@
                 .catch(err => {
                     console.log("Err in axios getComponent /image/:id ", err);
                 });
+
+            axios
+                .get("/comments/" + this.showmodal)
+                .then(resp => {
+                    console.log("Response from get Comments: ", resp.data);
+                    self.comments = resp.data;
+
+                    console.log("Self.Comments: ", self.comments);
+                })
+                .catch(err => {
+                    console.log(
+                        "Error in getting Comments in Vue Component: ",
+                        err
+                    );
+                });
         },
         methods: {
             clicked: function() {
@@ -44,25 +59,23 @@
                 this.$emit("change", "Changed Modal Prop on Click emit");
             },
             submitComment: function(e) {
-                console.log("Comment Values: ", this);
-                console.log("this.commenter: ", this.commenter);
-                console.log("comment_content: ", this.comment_content);
-                console.log("this.showmodal: ", this.showmodal);
-
                 let self = this;
 
                 axios
-                    .post("/postComment/" + this.showmodal, {
-                        commenter: this.commenter,
-                        comment_content: this.comment_content
+                    .post("/postComment/" + self.showmodal, {
+                        commenter: self.commenter,
+                        comment_content: self.comment_content
                     })
-                    .then(function(resp) {
-                        // console.log(
-                        //     "Response from Posting Comment: ",
-                        //     resp.data
-                        // );
+                    .then(resp => {
+                        console.log(
+                            "My Resp from Server /postComment/: ",
+                            resp.data
+                        );
 
-                        console.log("My Resp from Server: ", resp.data);
+                        self.comments.unshift(resp.data.comment);
+                        self.comment = "";
+                        self.commenter = "";
+                        self.comment_content = "";
                     })
                     .catch(function(err) {
                         console.log("Error in Posting Comment: ", err);

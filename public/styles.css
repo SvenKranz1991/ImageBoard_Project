@@ -77,3 +77,9 @@
 p {
     color: black;
 }
+
+.commentsection {
+    overflow: scroll;
+    height: 500px;
+    width: 500px;
+}

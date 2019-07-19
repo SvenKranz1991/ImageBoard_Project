@@ -61,14 +61,19 @@
 
                             <input v-model:value="comment_content" name="comment_content" placeholder="comment" type="text">
                             <input v-model:value="commenter" name="commenter" placeholder="name" type="text">
-                            <button @click.prevent.default="submitComment">Submit</button>
+                            <button @click="submitComment">Submit</button>
 
-                            <div class = "addcomment" v-for ="comment in comments">
-                            <div class = "commentsection">
-                                <p>{{comment.comment}}</p>
-                                <p>{{comment.user_name}} on {{comment.created_at}}</p>
+
+                            <div class="comment">
+                            <div class = "commentsection"
+                            v-for="comment in comments" id="comments">
+                                <div><p>Text: {{comment.comment_content}}
+                                </p></div>
+                                <div><p>Name: {{comment.commenter}} at {{comment.created_at}}</p></div>
+                                <p v-else>No Comments</p>
                             </div>
-                        </div>
+                            </div>
+
                         </div>
                     </div>
                 </transition>

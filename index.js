@@ -11,7 +11,6 @@ const s3 = require("./s3");
 const config = require("./config");
 const db = require("./utils/db");
 
-// axios post commentUsername - for Modal
 app.use(require("body-parser").json());
 
 // Disk Storage
@@ -94,8 +93,6 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
 // Bug with displaying other properties
 
 app.get("/images/:showmodal", function(req, res) {
-    // console.log("Req.Params.id: ", req.params.id);
-    // console.log("Req.Params.showmodal: ", req.params.showmodal);
     db.getMeOneImageToShow(req.params.showmodal)
         .then(results => {
             console.log("getMeOneImageResult: ", results.rows[0]);
@@ -109,12 +106,6 @@ app.get("/images/:showmodal", function(req, res) {
 // Comment Section
 
 app.post("/postComment/:showmodal", (req, res) => {
-    // console.log("MyReq in Comment :", req);
-    console.log("MyReq Id: ", req.params.showmodal);
-    console.log("req.body.comment_content: ", req.body.comment_content);
-    console.log("req.body.commenter: ", req.body.commenter);
-    // console.log("ReqData in postComment: ", req);
-
     db.postingComment(
         req.params.showmodal,
         req.body.commenter,
@@ -124,11 +115,22 @@ app.post("/postComment/:showmodal", (req, res) => {
             res.json({
                 comment: recentComment.rows[0]
             });
-            console.log("Comment added in Database!!!", recentComment);
-            // res.json(comment);
         })
         .catch(err => {
             console.log("Error in postingComment: ", err);
+        });
+});
+
+// Getting All Comments
+
+app.get("/comments/:showmodal", (req, res) => {
+    db.getComments(req.params.showmodal)
+        .then(allcomment => {
+            console.log("My Comment: ", allcomment.rows);
+            res.json(allcomment.rows);
+        })
+        .catch(err => {
+            console.log("Error in getComment: ", err);
         });
 });
 

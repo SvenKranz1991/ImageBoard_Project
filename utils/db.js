@@ -59,5 +59,8 @@ exports.postingComment = function postingComment(
 };
 
 exports.getComments = function getComments(id) {
-    return dbUrl.query(`SELECT * FROM comments WHERE image_id = $1`, [id]);
+    return dbUrl.query(
+        `SELECT * FROM commentsection WHERE img_id = $1 ORDER BY created_at DESC`,
+        [id]
+    );
 };
