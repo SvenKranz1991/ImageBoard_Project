@@ -69,7 +69,11 @@
 }
 
 .wrapper {
-    height: 500px;
-    width: 500px;
+    height: 900px;
+    width: 900px;
     background: white;
+}
+
+p {
+    color: black;
 }

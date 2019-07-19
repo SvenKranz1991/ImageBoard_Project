@@ -12,11 +12,7 @@ const config = require("./config");
 const db = require("./utils/db");
 
 // axios post commentUsername - for Modal
-app.use(
-    require("body-parser").urlencoded({
-        extended: false
-    })
-);
+app.use(require("body-parser").json());
 
 // Disk Storage
 
@@ -94,17 +90,45 @@ app.post("/upload", uploader.single("file"), s3.upload, (req, res) => {
     // }
 });
 
-// Testing Loading single Image
+// Testing Loading Single Image in Modal
+// Bug with displaying other properties
 
-// app.get("/images/:id", function(req, res){})
-app.get("/images/:id", function(req, res) {
-    db.getMeOneImageToShow(req.params.id)
-        .then(result => {
-            console.log("getMeOneImageResult: ", result);
-            res.json(result.rows[0]);
+app.get("/images/:showmodal", function(req, res) {
+    // console.log("Req.Params.id: ", req.params.id);
+    // console.log("Req.Params.showmodal: ", req.params.showmodal);
+    db.getMeOneImageToShow(req.params.showmodal)
+        .then(results => {
+            console.log("getMeOneImageResult: ", results.rows[0]);
+            res.json(results.rows[0]);
         })
         .catch(err => {
             console.log("Error In getMeOneImageToShow: ", err);
+        });
+});
+
+// Comment Section
+
+app.post("/postComment/:showmodal", (req, res) => {
+    // console.log("MyReq in Comment :", req);
+    console.log("MyReq Id: ", req.params.showmodal);
+    console.log("req.body.comment_content: ", req.body.comment_content);
+    console.log("req.body.commenter: ", req.body.commenter);
+    // console.log("ReqData in postComment: ", req);
+
+    db.postingComment(
+        req.params.showmodal,
+        req.body.commenter,
+        req.body.comment_content
+    )
+        .then(recentComment => {
+            res.json({
+                comment: recentComment.rows[0]
+            });
+            console.log("Comment added in Database!!!", recentComment);
+            // res.json(comment);
+        })
+        .catch(err => {
+            console.log("Error in postingComment: ", err);
         });
 });
 

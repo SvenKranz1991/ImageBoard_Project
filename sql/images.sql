@@ -29,3 +29,13 @@ INSERT INTO images (url, username, title, description) VALUES (
     'Hello Berlin',
     'This is going to be worth a lot of money one day.'
 );
+
+DROP TABLE IF EXISTS commentsection;
+
+CREATE TABLE commentsection(
+    id SERIAL PRIMARY KEY,
+    img_id INT NOT NULL,
+    commenter VARCHAR(255),
+    comment_content TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -8,7 +8,8 @@
             description: "",
             username: "",
             file: null,
-            showModal: false
+            showmodal: false,
+            id: location.hash
         }, // closes data
         mounted: function() {
             var self = this;
@@ -16,8 +17,6 @@
                 .get("/images")
                 .then(function(resp) {
                     self.images = resp.data.rows;
-                    console.log("selfImages: ", self.images);
-                    console.log("Resp: ", resp);
                 })
                 .catch(function(err) {
                     console.log("err in GET /images: ", err);
@@ -63,8 +62,8 @@
                 );
             },
             clicked: function(id) {
-                this.showModal = id;
-                console.log("clicked Id: ", this.showModal);
+                this.showmodal = id;
+                console.log("clicked Id: ", this.showmodal);
             } // closes handleChange
         }
     }); // closes Vue

@@ -1,63 +1,73 @@
-Vue.component("modal-component", {
-    template: "#modal-template",
-    data: function() {
-        return {
-            showimage: {
+(function() {
+    Vue.component("modalshow", {
+        template: "#modalshow-template",
+        data: function() {
+            return {
                 url: "",
-                username: "",
                 title: "",
+                created_at: "",
                 description: "",
-                created_at: ""
-            }
-        };
-    },
-    props: ["id"],
-    mounted: function() {
-        var id = this.id;
-        const self = this;
-
-        axios
-            .get("/images/" + id)
-            .then(resp => {
-                console.log("My response from images Images.data: ", resp.data);
-
-                console.log("Component mounted!");
-                self.showimage = resp.data;
-                // console.log("showimage Data: ", resp.data.rows[0]);
-                // self.url = resp.data[0].url;
-                // self.description = resp.data[0].description;
-                // self.id = resp.data[0].id;
-                // self.title = resp.data[0].title;
-                // self.username = resp.data[0].username;
-                // self.created_at = resp.data[0].created_at;
-
-                // console.log("Image.data[0]: ", image.data[0]);
-                // console.log(
-                //     "My self Data: ",
-                //     "My Url: ",
-                //     self.url,
-                //     "My Description: ",
-                //     self.description,
-                //     "My id: ",
-                //     self.id,
-                //     "My Title: ",
-                //     self.title,
-                //     "My Username: ",
-                //     self.username,
-                //     "My created_at: ",
-                //     self.created_at
-                // );
-            })
-            .catch(err => {
-                console.log("Err in axios getComponent /image/:id ", err);
-            });
-    },
-    methods: {
-        clicked: function() {
-            this.something = this.whatever;
+                username: "",
+                comment: []
+            };
         },
-        clickedImage: function() {
-            this.$emit("change", "Changed Modal Prop on Click emit");
+        props: ["showmodal"],
+        mounted: function() {
+            const self = this;
+            console.log(this.showmodal);
+
+            axios
+                .get("/images/" + this.showmodal)
+                .then(resp => {
+                    console.log("Response from Index: ", resp.data);
+                    console.log("Component mounted!");
+                    self.image = resp.data;
+
+                    self.url = self.image.url;
+                    self.title = self.image.title;
+                    self.created_at = self.image.created_at;
+                    self.username = self.image.username;
+                    self.description = self.image.description;
+
+                    console.log("self.url: ", self.url);
+                    console.log("self.thetitle: ", self.title);
+                })
+                .catch(err => {
+                    console.log("Err in axios getComponent /image/:id ", err);
+                });
+        },
+        methods: {
+            clicked: function() {
+                this.something = this.whatever;
+            },
+            clickedImage: function() {
+                this.$emit("change", "Changed Modal Prop on Click emit");
+            },
+            submitComment: function(e) {
+                console.log("Comment Values: ", this);
+                console.log("this.commenter: ", this.commenter);
+                console.log("comment_content: ", this.comment_content);
+                console.log("this.showmodal: ", this.showmodal);
+
+                let self = this;
+
+                axios
+                    .post("/postComment/" + this.showmodal, {
+                        commenter: this.commenter,
+                        comment_content: this.comment_content
+                    })
+                    .then(function(resp) {
+                        // console.log(
+                        //     "Response from Posting Comment: ",
+                        //     resp.data
+                        // );
+
+                        console.log("My Resp from Server: ", resp.data);
+                    })
+                    .catch(function(err) {
+                        console.log("Error in Posting Comment: ", err);
+                    });
+            }
         }
-    }
-});
+    });
+})();

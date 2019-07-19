@@ -32,21 +32,32 @@ exports.insertPicture = function insertPicture(
     );
 };
 
-//////// FOR TESTING WITH ONE IMAGE
+//////// FOR TESTING WITH IMAGE
 
 exports.getMeOneImageToShow = function getMeOneImageToShow(id) {
     return dbUrl.query(
         `SELECT *
         FROM images
-        WHERE id = $1;
+        WHERE id = $1
         `,
         [id]
     );
 };
 
-// exports.getRecentPictures = function getRecentPictures() {
-//     return dbUrl.query(`SELECT images.url
-// FROM images
-// ORDER BY created_at DESC
-// LIMIT 3`);
-// };
+////////// Posting Comment
+
+exports.postingComment = function postingComment(
+    img_id,
+    commenter,
+    comment_content
+) {
+    return dbUrl.query(
+        `INSERT INTO commentsection(img_id, commenter,
+        comment_content) VALUES ($1, $2, $3) RETURNING *`,
+        [img_id, commenter, comment_content]
+    );
+};
+
+exports.getComments = function getComments(id) {
+    return dbUrl.query(`SELECT * FROM comments WHERE image_id = $1`, [id]);
+};

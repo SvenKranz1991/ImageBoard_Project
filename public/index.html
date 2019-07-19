@@ -8,10 +8,7 @@
     <body>
         <div class="main">
 
-        <div class="singleImageWrapper">
-            <modal-component v-if="showModal" :id="showModal" @close="showModal=false">
-            </modal-component>
-        </div>
+
 
             <h1>Welcome!! I love Pixels</h1>
 
@@ -33,33 +30,60 @@
 
         <div class="image" v-if="images.length > 0">
             <div class="imagewrapper"v-for="image in images">
-
                 <img :src="image.url" alt="image" class="imagepost" @click="clicked(image.id)">
                     <p class="imagetext">{{image.title}}</p>
                     <p v-else>No Image</p>
             </div>
         </div>
 
+
+        <div class="singleImageWrapper">
+            <modalshow v-if="showmodal" :showmodal="showmodal" @close="showmodal = false">
+                                    <!-- :id -->
+            </modalshow>
+        </div>
+
+
+    </div>
+
+        <!-- SCRIPTS -->
+
+            <script type="text/x-template" id="modalshow-template">
+                <transition name="modal">
+                    <div class="modalMask">
+                        <div class="wrapper">
+                            <button class="modal-btn" @click="$emit('close')">OK</button>
+                             <img :src='url' alt="modalImageTest" class="IMG-container">
+                            <p>Title: {{title}}</p>
+                            <p>Created at: {{created_at}}</p>
+                            <p>Username: {{username}}</p>
+                            <p>Description: {{description}}</p>
+
+                            <input v-model:value="comment_content" name="comment_content" placeholder="comment" type="text">
+                            <input v-model:value="commenter" name="commenter" placeholder="name" type="text">
+                            <button @click.prevent.default="submitComment">Submit</button>
+
+                            <div class = "addcomment" v-for ="comment in comments">
+                            <div class = "commentsection">
+                                <p>{{comment.comment}}</p>
+                                <p>{{comment.user_name}} on {{comment.created_at}}</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </transition>
+            </script>
+            <script src="/js/vue.js"></script>
+            <script src="/js/axios.min.js"></script>
+            <script src=“https://code.jquery.com/jquery-3.3.1.min.js“></script>
+            <script src="/js/component.js"></script>
+            <script src="/js/script.js"></script>
     </body>
 
-    <!-- SCRIPTS -->
 
-        <script type="text/x-template" id="modal-template">
-            <transition name="modal">
-                <div class="modalMask">
-                <div class="wrapper">
-                    <h1>Photo - {{id}}</h1>
-                 <img :src='showimage.url' alt="modalImageTest" class="IMG-container">
-                    <button class="modal-btn" @click="$emit('close')">OK</button>
-                </div>
-                </div>
-            </transition>
-        </script>
-        <script src="/js/vue.js"></script>
-        <script src="/js/axios.min.js"></script>
-        <script src=“https://code.jquery.com/jquery-3.3.1.min.js“></script>
-        <script src="/js/component.js"></script>
-        <script src="/js/script.js"></script>
+
+
+
     <footer>
     </footer>
 </html>
