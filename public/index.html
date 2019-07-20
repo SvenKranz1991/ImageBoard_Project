@@ -11,6 +11,7 @@
 
 
             <h1>Welcome!! I love Pixels</h1>
+            <button @click="getMore">get More</button>
 
             <!-- FORM -->
             <form>
@@ -28,18 +29,18 @@
     <!-- IMAGE SECTION -->
     <h1>Latest images</h1>
 
-        <div class="image" v-if="images.length > 0">
-            <div class="imagewrapper"v-for="image in images">
-                <img :src="image.url" alt="image" class="imagepost" @click="clicked(image.id)">
+        <div class="image">
+            <div class="imagewrapper" v-for="image in images">
+                <a :href="'#' + image.id">
+                <img :src="image.url" alt="image" class="imagepost" @click="clicked(image.id)"></a>
                     <p class="imagetext">{{image.title}}</p>
-                    <p v-else>No Image</p>
             </div>
         </div>
 
 
         <div class="singleImageWrapper">
             <modalshow v-if="showmodal" :showmodal="showmodal" @close="showmodal = false">
-                                    <!-- :id -->
+
             </modalshow>
         </div>
 
@@ -59,18 +60,19 @@
                             <p>Username: {{username}}</p>
                             <p>Description: {{description}}</p>
 
-                            <input v-model:value="comment_content" name="comment_content" placeholder="comment" type="text">
-                            <input v-model:value="commenter" name="commenter" placeholder="name" type="text">
-                            <button @click="submitComment">Submit</button>
+                            <input v-model="comment_content" name="comment_content" placeholder="comment" type="text">
+                            <input v-model="commenter" name="commenter" placeholder="name" type="text">
+                            <button @click.prevent.default="submitComment">Submit</button>
 
 
                             <div class="comment">
                             <div class = "commentsection"
-                            v-for="comment in comments" id="comments">
-                                <div><p>Text: {{comment.comment_content}}
-                                </p></div>
-                                <div><p>Name: {{comment.commenter}} at {{comment.created_at}}</p></div>
-                                <p v-else>No Comments</p>
+                            v-for="comment in comments">
+                                <p>Text: {{comment.comment_content}}
+                                </p>
+                                <p>Name: {{comment.commenter}} at {{comment.created_at}}</p>
+                                <p>No Comments</p>
+
                             </div>
                             </div>
 

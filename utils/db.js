@@ -64,3 +64,15 @@ exports.getComments = function getComments(id) {
         [id]
     );
 };
+
+exports.getMoreImages = function getMoreImages(lastId) {
+    return dbUrl.query(
+        `SELECT id,
+        (SELECT id FROM images ORDER BY
+        id ASC LIMIT 1)
+        AS "lowestId" FROM images
+        WHERE id < 10
+        ORDER BY id DESC
+        LIMIT 20`
+    );
+};

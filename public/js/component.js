@@ -8,7 +8,9 @@
                 created_at: "",
                 description: "",
                 username: "",
-                comments: []
+                comments: [],
+                comment_content: "",
+                commenter: ""
             };
         },
         props: ["showmodal"],

@@ -8,8 +8,7 @@
             description: "",
             username: "",
             file: null,
-            showmodal: false,
-            id: location.hash
+            showmodal: location.hash.slice(1)
         }, // closes data
         mounted: function() {
             var self = this;
@@ -17,32 +16,21 @@
                 .get("/images")
                 .then(function(resp) {
                     self.images = resp.data.rows;
+                    console.log("selfImages: ", self.images);
+                    console.log("Resp: ", resp);
                 })
                 .catch(function(err) {
                     console.log("err in GET /images: ", err);
                 }); // any get request you want
-
-            // axios.post("/comment", {
-            //     imageId: this.id,
-            //     comment: this.commentText,
-            //     username: this.commentUsername
-            // });
         }, // closes mounted
         methods: {
             handleClick: function() {
-                // this function runs when user selects an image on the file input field
-                // FormData API is necessary for sending FILES from client to server
-
                 var formData = new FormData();
                 formData.append("title", this.title);
                 formData.append("username", this.username);
                 formData.append("description", this.description);
                 formData.append("file", this.file);
                 let self = this;
-                // for (var pair of formData.entries()) {
-                //     console.log(pair[0] + ", " + pair[1]);
-                // }
-                // console.log("formData", formData.entries());
 
                 axios
                     .post("/upload", formData)
@@ -63,8 +51,26 @@
             },
             clicked: function(id) {
                 this.showmodal = id;
-                console.log("clicked Id: ", this.showmodal);
-            } // closes handleChange
+                console.log("clicked Id: ", this.showModal);
+            }, // closes handleChange
+            getMore: function() {
+                let lastId = this.images[this.images.length - 1].id;
+                console.log(lastId);
+
+                axios
+                    .get("/getMoreImages/", {
+                        lastId: lastId
+                    })
+                    .then(function(resp) {
+                        console.log(resp);
+                    })
+                    .catch(err => {
+                        console.log(
+                            "Error in Axios getMoreImages Route: ",
+                            err
+                        );
+                    });
+            }
         }
     }); // closes Vue
 })();

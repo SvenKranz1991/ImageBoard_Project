@@ -134,4 +134,20 @@ app.get("/comments/:showmodal", (req, res) => {
         });
 });
 
+// Getting more images
+
+app.get("/getMoreImages/", (req, res) => {
+    console.log("Log Axios - Get more Images: ", req);
+
+    let lastId = 12;
+
+    db.getMoreImages(lastId)
+        .then(results => {
+            console.log("My Results from get More Images: ", results);
+        })
+        .catch(err => {
+            console.log("Error in getting more Images: ", err);
+        });
+});
+
 app.listen(8080, () => console.log("Listening"));
