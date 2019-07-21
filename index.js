@@ -136,14 +136,16 @@ app.get("/comments/:showmodal", (req, res) => {
 
 // Getting more images
 
-app.get("/getMoreImages/", (req, res) => {
-    console.log("Log Axios - Get more Images: ", req);
+app.get("/getMoreImages/:lastId", (req, res) => {
+    console.log(req.params.lastId);
+    // console.log("Log Axios - Get more Images: ", req);
 
-    let lastId = 12;
+    let lastId = req.params.lastId;
 
     db.getMoreImages(lastId)
         .then(results => {
             console.log("My Results from get More Images: ", results);
+            res.json(results);
         })
         .catch(err => {
             console.log("Error in getting more Images: ", err);

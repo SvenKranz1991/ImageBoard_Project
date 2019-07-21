@@ -67,12 +67,19 @@ exports.getComments = function getComments(id) {
 
 exports.getMoreImages = function getMoreImages(lastId) {
     return dbUrl.query(
-        `SELECT id,
-        (SELECT id FROM images ORDER BY
-        id ASC LIMIT 1)
-        AS "lowestId" FROM images
-        WHERE id < 10
+        `SELECT * FROM images
+        WHERE id <$1
         ORDER BY id DESC
-        LIMIT 20`
+        LIMIT 6`,
+        [lastId]
     );
 };
+
+//
+// `SELECT id,
+// (SELECT id FROM images ORDER BY
+// id ASC LIMIT 1)
+// AS "lowestId" FROM images
+// WHERE id < 10
+// ORDER BY id DESC
+// LIMIT 20`
