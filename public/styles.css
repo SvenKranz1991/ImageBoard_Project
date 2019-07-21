@@ -37,7 +37,6 @@ body {
 /* Upload Form */
 
 .UploadForm {
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     padding-top: 20px;
@@ -63,7 +62,7 @@ body {
 }
 
 .submitUploadFrom {
-    margin-top: 20px;
+    margin-top: 35px;
     padding: 5px;
     cursor: pointer;
     border: 1px solid black;
@@ -86,6 +85,7 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
+    margin-top: 20px;
     margin-bottom: 20px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
