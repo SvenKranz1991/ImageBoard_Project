@@ -38,6 +38,8 @@
                 } else {
                     console.log("Failes - close Modal");
                     self.showmodal = null;
+                    location.hash = "";
+                    history.replaceState(null, null, " ");
                 }
             });
         }, // closes mounted
