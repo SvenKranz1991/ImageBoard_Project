@@ -1,7 +1,7 @@
 (function() {
     new Vue({
         el: ".main",
-        name: "I love Pixels",
+        name: "I hate Bugs",
         data: {
             images: [],
             title: "",
@@ -24,8 +24,14 @@
                     console.log("err in GET /images: ", err);
                 }); // any get request you want
 
-            addEventListener("hashChange", function() {
-                self.showmodal = location.hash.slice(1);
+            addEventListener("hashchange", function() {
+                let firstId = self.images[0].id;
+                console.log("FirstId: ", firstId);
+                if (self.showmodal <= firstId) {
+                    self.showmodal = location.hash.slice(1);
+                } else {
+                    this.$emit("closeModal");
+                }
             });
         }, // closes mounted
         methods: {
@@ -46,6 +52,7 @@
                         self.description = "";
                         self.username = "";
                         self.file = null;
+                        self.morePictures = true;
                     })
                     .catch(function(err) {
                         console.log("error in POST /upload: ", err);

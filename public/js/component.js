@@ -59,6 +59,7 @@
                 // // check if request hash number is bigger than latest id in grid
                 let firstId = this.images[0].id;
                 let lastId = this.images[this.images.length - 1].id;
+
                 //
                 // let num = location.hash.slice(1);
                 //
@@ -74,8 +75,8 @@
                     .then(resp => {
                         console.log("Response from Index: ", resp.data);
                         console.log("Component mounted!");
-                        self.image = resp.data;
 
+                        self.image = resp.data;
                         self.url = self.image.url;
                         self.title = self.image.title;
                         self.created_at = self.image.created_at;
