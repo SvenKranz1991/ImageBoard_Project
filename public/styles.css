@@ -31,6 +31,7 @@ body {
 
 .headline {
     color: white;
+    letter-spacing: 3px;
 }
 
 /* Upload Form */
@@ -41,6 +42,19 @@ body {
     justify-content: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.UploadForm input {
+    margin-bottom: 10px;
+    width: 300px;
+    height: 30px;
+    border: 1px solid #cccccc;
+}
+
+#inp {
+    text-align: center;
+    margin: auto;
 }
 
 .UploadForm h4 {
@@ -49,12 +63,17 @@ body {
 }
 
 .submitUploadFrom {
-    padding-top: 20px;
+    margin-top: 20px;
+    padding: 5px;
     cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .submitUploadFrom:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    background-color: black;
+    color: white;
 }
 
 /* Latest Title */
@@ -70,7 +89,18 @@ body {
     margin-bottom: 20px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    letter-spacing: 4px;
 }
+
+/* .LatestTitle {
+    -webkit-transition: -webkit-transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out;
+}
+
+.LatestTitle:hover {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+} */
 
 /* Image Cards Section */
 
@@ -82,6 +112,7 @@ body {
 .imagetext {
     font-weight: bold;
     padding-bottom: 10px;
+    letter-spacing: 3px;
 }
 
 /* Importante */
@@ -110,6 +141,7 @@ body {
     grid-gap: 25px;
     padding-top: 30px;
     padding-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 /* Modal Mask */
@@ -155,6 +187,7 @@ body {
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
+    border: 1px solid #cccccc;
 }
 
 .modal-btn {
@@ -163,13 +196,15 @@ body {
     margin-bottom: 10px;
     border: 1px solid black;
     border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
     margin-top: 10px;
 }
 
 .modal-btn:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    background-color: black;
+    color: white;
 }
 
 .inputfieldsModal {
@@ -197,15 +232,29 @@ p {
 /* Comment Section */
 
 .commentInputField {
-    margin-top: 20px;
+    margin-top: 5px;
+}
+
+.inputfieldsModal input {
+    margin-bottom: 10px;
+    width: 300px;
+    height: 20px;
+    border: 1px solid #cccccc;
 }
 
 .submitCommentBtn {
     cursor: pointer;
     border: 1px solid black;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 10px;
+    background-color: white;
+    color: black;
+}
+
+.submitCommentBtn:hover {
+    background-color: black;
+    color: white;
 }
 
 .commentsection {

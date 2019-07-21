@@ -24,13 +24,20 @@
                     console.log("err in GET /images: ", err);
                 }); // any get request you want
 
-            addEventListener("hashchange", function() {
+            window.addEventListener("hashchange", function() {
                 let firstId = self.images[0].id;
+                console.log("Window.location.hash: ", window.location.hash);
+                console.log(
+                    "Window.location.hash.slice(1): ",
+                    window.location.hash.slice(1)
+                );
                 console.log("FirstId: ", firstId);
-                if (self.showmodal <= firstId) {
+                if (window.location.hash.slice(1) <= firstId) {
+                    console.log("Success - right hash!");
                     self.showmodal = location.hash.slice(1);
                 } else {
-                    this.$emit("closeModal");
+                    console.log("Failes - close Modal");
+                    self.showmodal = null;
                 }
             });
         }, // closes mounted

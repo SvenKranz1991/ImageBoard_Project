@@ -39,6 +39,8 @@ var uploader = multer({
 
 app.use(express.static("./public"));
 
+app.use(express.static("./images"));
+
 // Images Route
 
 app.get("/images", function(req, res) {

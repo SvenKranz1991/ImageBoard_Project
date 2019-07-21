@@ -5,6 +5,7 @@
         <title></title>
         <link rel="stylesheet" href="/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400i,500,500i,700&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" type="image/x-icon" href="https://images.app.goo.gl/8QFaATqoBijipCne9">
     </head>
     <body>
 
@@ -28,7 +29,7 @@
                     <input v-model="description" name='description' placeholder="description" type='text'>
 
                     <h4>Choose your File to upload!</h4>
-                    <input  name='file' type='file' accept='image/*' @change='handleChange' required>
+                    <input  name='file' type='file' accept='image/*' @change='handleChange' id="inp" required>
                 <h3 class="submitUploadFrom" @click.prevent.default="handleClick">Submit</h3>
             </form>
             </div>
@@ -38,7 +39,7 @@
 
 
     <!-- IMAGE SHOW SECTION -->
-    <h1 class="LatestTitle">Latest Images</h1>
+    <h1 class="LatestTitle"> - - - - - - - Latest Images - - - - - - - </h1>
 
         <div class="image">
             <div class="imagewrapper" v-for="image in images">
@@ -94,27 +95,17 @@
                             </div>
                             </div>
 
-
-
-                            <h3 class="submitCommentBtn"@click.prevent.default="submitComment">Submit</h3>
-                        </div>
-
-
+                            <h3 class="submitCommentBtn"@click.prevent.default="submitComment">Post Comment</h3>
+                            </div>
 
                             <div class="commentsection">
                             <div id="comments"
                             v-for="comment in comments" v-if="comments.length > 0">
                             <p> Name: <b>{{comment.commenter}}</b> <em>at</em> {{comment.created_at}}</p>
-
                             <hr>
                                 <p><b>Message:</b></p>
                                 <p>{{comment.comment_content}}</p>
-
-
-
-
                             </div>
-
                             </div>
                             <div class="NoCmments" >
                                 <p v-else>No Comments</p>
