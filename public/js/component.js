@@ -19,6 +19,18 @@
             const self = this;
             console.log(this.showmodal);
 
+            // // check if request hash number is bigger than latest id in grid
+            // let firstId = this.images[0].id;
+            // let lastId = this.images[this.images.length - 1].id;
+            //
+            // let num = location.hash.slice(1);
+            //
+            // if (num > firstId) {
+            //     console.log("Sorry, wrong number!");
+            // } else {
+            //     console.log("cool!");
+            // }
+
             axios
                 .get(`/images/` + this.showmodal)
                 .then(resp => {
@@ -57,11 +69,6 @@
         watch: {
             showmodal: function() {
                 var self = this;
-                let firstId = this.images[0].id;
-                let lastId = this.images[this.images.length - 1].id;
-
-                // check if request hash number is bigger than latest id in grid
-
                 axios
                     .get("/images/" + this.showmodal)
                     .then(resp => {

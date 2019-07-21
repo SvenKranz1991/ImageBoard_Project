@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS commentsection;
 CREATE TABLE commentsection(
     id SERIAL PRIMARY KEY,
     img_id INT NOT NULL,
-    commenter VARCHAR(255),
-    comment_content TEXT,
+    commenter VARCHAR(255) NOT NULL,
+    comment_content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
