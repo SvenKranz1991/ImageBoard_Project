@@ -6,6 +6,8 @@ Cloudfront CDN -- Content Delivery Network
 
 ---
 
+CHECK!
+
 S3 - use for serving
 IAM
 
