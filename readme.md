@@ -1,6 +1,7 @@
 1. Write queries for inserting photos/url in database
 2. Query for getting most recent picture
 
+JOW
 Cloudfront CDN -- Content Delivery Network
 
 ---
