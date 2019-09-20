@@ -1,33 +1,67 @@
-1. Write queries for inserting photos/url in database
-2. Query for getting most recent picture
+# Pinterest like Image-Board - "Spotify-Related"
 
-JOW
-Cloudfront CDN -- Content Delivery Network
+Spotify-Related was my final project built within 5 days at SPICED Academy - an onsite 12 weeks coding bootcamp in Berlin.
 
----
+The SPA was built with React.js using Hooks and Redux, Node.js and Express.js, PostgreSQL.
 
-CHECK!
+Some General Information.
 
-S3 - use for serving
-IAM
+#### The Data I was interested in from the "Audio Features" - Endpoint that Spotify provided
 
-Create user
-Create group
+-   Item
 
-AmazonS3FullAccess
+Especially the latter part was of high interested for me, since as a Sound Designer I was curious to see how and what Spotify stores about each track.
 
-Download csv or copying Access key ID - Secret access key
+![The Login Process and Overview of Landing Page]()
 
-don't commit your credentials
+## Getting Started
 
--   git ignore the file
--   than add the credentials
+Clone Repo and
 
-// spicedling
+`npm -i -S`
 
-Bucket Name -- needs to be unique
-Region -- US EAST N.Virgina <--
+Need to add own s3 Credentials in order to upload profile Pictures, and setup a Database in PostgreSQL.
 
-Objects can be public <--> files
+Then
 
-AWS SDK
+node bundle-server.js
+node index.js
+
+## Built With
+
+### Frontend
+
+-   Vue.js
+-   CSS3
+-   vue-pose (for animations)
+
+### Backend
+
+-   Node.js
+-   Express.js
+-   PostgreSQL
+-   AWS(S3)
+
+## Features
+
+![Create Playlist - Process](readmegifs/Gif_1_640px_CreatePlaylist.gif)
+
+### Displaying Audio Features from every Track from the created Playlist
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Features to be added
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Authors
+
+-   **Sven Kranz** - [SvenKranz1991](https://github.com/SvenKranz1991) | [LinkedIn](https://www.linkedin.com/in/sven-kranz-a2389318b/) | [Website](www.google.com)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+-   Thank god for PostgreSQL
