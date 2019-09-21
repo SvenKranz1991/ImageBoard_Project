@@ -16,16 +16,7 @@ Especially the latter part was of high interested for me, since as a Sound Desig
 
 ## Getting Started
 
-Clone Repo and
-
-`npm -i -S`
-
-Need to add own s3 Credentials in order to upload profile Pictures, and setup a Database in PostgreSQL.
-
-Then
-
-node bundle-server.js
-node index.js
+https://thai-streetfood-love.herokuapp.com/
 
 ## Built With
 
