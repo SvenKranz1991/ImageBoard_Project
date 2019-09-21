@@ -157,4 +157,8 @@ app.get("/getMoreImages/:lastId", (req, res) => {
         });
 });
 
-app.listen(8080, () => console.log("Listening"));
+app.get("/", function(req, res) {
+    res.redirect("/images");
+});
+
+app.listen(process.env.PORT || 8080, () => console.log("8080 Listening!"));
