@@ -70,11 +70,17 @@ nav {
     letter-spacing: 2px;
 }
 
+.fab:hover {
+    color: #fa625f;
+    transition-duration: 0.5s;
+}
+
 .UploadForm input {
     margin-bottom: 10px;
     width: 300px;
     height: 30px;
     border: 1px solid #cccccc;
+    outline: none;
 }
 
 #inp {
