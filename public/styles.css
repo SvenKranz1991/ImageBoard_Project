@@ -18,7 +18,7 @@ a {
 body {
     display: flex;
     justify-content: center;
-    text-align: center;
+    /* text-align: center; */
     width: 100%;
     height: 100%;
 }
@@ -33,11 +33,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    padding-left: 20px;
 }
 
 nav {
-    padding-top: 10vh;
+    padding-top: 2vh;
 }
 
 .upload-wrapper {
@@ -103,7 +103,7 @@ nav {
 .filefield:focus + label,
 .filefield + label:hover {
     background-color: black;
-    color: #fbf579;
+    color: white;
 }
 .filefield + label {
     cursor: pointer; /* "hand" cursor */
@@ -125,13 +125,13 @@ label {
     margin-top: 35px;
     padding: 5px;
     cursor: pointer;
-    border: 1px solid black;
-    border-radius: 5px;
+    display: inline;
 }
 
 .submitUploadFrom:hover {
     /* text-decoration: underline; */
     background-color: black;
+    border-radius: 5px;
     color: white;
 }
 
