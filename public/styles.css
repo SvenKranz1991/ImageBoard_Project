@@ -140,12 +140,14 @@ nav {
 .imagetext {
     font-weight: bold;
     position: absolute;
+    background-color: #fbf579;
+    padding: 10px;
     top: 50%; /* position the top  edge of the element at the middle of the parent */
     left: 50%; /* position the left edge of the element at the middle of the parent */
     transform: translate(-50%, -50%);
     font-family: "Quicksand", sans-serif;
     font-weight: 700;
-    color: white;
+    color: black;
     visibility: hidden;
 }
 
@@ -157,9 +159,7 @@ nav {
     position: relative;
 }
 
-.imagewrapper:hover {
-    border-radius: 14px;
-    text-decoration: underline;
+.imagewrapper:hover img {
     filter: grayscale(80%);
     transition-duration: 0.5s;
 }
