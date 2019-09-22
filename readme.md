@@ -8,13 +8,13 @@ Users must add a Username, Title and Description before uploading it to the Amaz
 
 After Uploading the Image Section refreshes automatically and Users can Comment on each Picture.
 
-![The Login Process and Overview of Landing Page]()
+![The Login Process and Overview of Landing Page](gifreadme/ThaiStreetfoodLove-640.gif)
 
 ## Getting Started
 
 This Website is deployed on Heroku.
 
-[Thai-Streetfood-Love on Heroku](gifreadme/ThaiStreetfoodLove-640.gif)
+[Thai-Streetfood-Love on Heroku](https://thai-streetfood-love.herokuapp.com/)
 
 ## Built With
 
