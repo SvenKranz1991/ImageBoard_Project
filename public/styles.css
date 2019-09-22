@@ -194,6 +194,7 @@ label {
 
 .imagewrapper:hover .imagetext {
     visibility: visible;
+    filter: grayscale(0%);
     transition-duration: 1s;
 }
 
