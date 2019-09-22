@@ -194,7 +194,7 @@ label {
 
 .imagewrapper:hover .imagetext {
     visibility: visible;
-    transition-duration: 0.5s;
+    transition-duration: 1s;
 }
 
 .main {
