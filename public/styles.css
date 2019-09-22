@@ -77,15 +77,43 @@ nav {
 
 .UploadForm input {
     margin-bottom: 10px;
-    width: 300px;
+    width: 80%;
     height: 30px;
     border: 1px solid #cccccc;
     outline: none;
 }
 
-#inp {
-    text-align: center;
-    margin: auto;
+.filefield {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.filefield + label {
+    font-size: 1em;
+    font-weight: 700;
+    color: black;
+    background-color: inherit;
+    display: inline-block;
+}
+
+.filefield:focus + label,
+.filefield + label:hover {
+    background-color: black;
+    color: #fbf579;
+}
+.filefield + label {
+    cursor: pointer; /* "hand" cursor */
+}
+
+label {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 20px;
 }
 
 .UploadForm h4 {
