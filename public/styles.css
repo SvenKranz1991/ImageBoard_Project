@@ -140,7 +140,7 @@ nav {
     display: inline-grid;
     height: 100%;
     width: 1fr;
-    filter: grayscale(50%);
+    filter: grayscale(20%);
 }
 
 .imagewrapper:hover {
