@@ -70,7 +70,7 @@
                 <div class="imagewrapper" v-for="image in images">
                     <a :href="'#' + image.id">
                     <img :src="image.url" alt="image" class="imagepost" @click="clicked(image.id)"></a>
-                        <!-- <p class="imagetext">{{image.title}}</p> -->
+                        <p class="imagetext">{{image.title}}</p>
 
                 </div>
 

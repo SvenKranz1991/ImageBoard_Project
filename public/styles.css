@@ -139,6 +139,14 @@ nav {
 
 .imagetext {
     font-weight: bold;
+    position: absolute;
+    top: 50%; /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+    transform: translate(-50%, -50%);
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    color: white;
+    visibility: hidden;
 }
 
 /* Importante */
@@ -146,13 +154,19 @@ nav {
     display: inline-grid;
     height: 100%;
     width: 1fr;
-    filter: grayscale(20%);
+    position: relative;
 }
 
 .imagewrapper:hover {
     border-radius: 14px;
     text-decoration: underline;
-    filter: grayscale(0%);
+    filter: grayscale(80%);
+    transition-duration: 0.5s;
+}
+
+.imagewrapper:hover .imagetext {
+    visibility: visible;
+    transition-duration: 0.5s;
 }
 
 .main {
