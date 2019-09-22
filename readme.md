@@ -1,22 +1,20 @@
-# Pinterest like Image-Board - "Spotify-Related"
+# Pinterest like Image-Board - "Thai-Streetfood-Love"
 
-Spotify-Related was my final project built within 5 days at SPICED Academy - an onsite 12 weeks coding bootcamp in Berlin.
+"Thai-Streetfood-Love" was my second project built within 5 days at SPICED Academy.
 
-The SPA was built with React.js using Hooks and Redux, Node.js and Express.js, PostgreSQL.
+The SPA is built with Vue.js, Node.js, Express.js, PostgreSQL and the AWS-Sdk and is
+a Pinterest like Image-Board, where Users can Upload and share Pictures.
+Users must add a Username, Title and Description before uploading it to the Amazon Web Services.
 
-Some General Information.
-
-#### The Data I was interested in from the "Audio Features" - Endpoint that Spotify provided
-
--   Item
-
-Especially the latter part was of high interested for me, since as a Sound Designer I was curious to see how and what Spotify stores about each track.
+After Uploading the Image Section refreshes automatically and Users can Comment on each Picture.
 
 ![The Login Process and Overview of Landing Page]()
 
 ## Getting Started
 
-https://thai-streetfood-love.herokuapp.com/
+This Website is deployed on Heroku.
+
+[Thai-Streetfood-Love on Heroku](gifreadme/ThaiStreetfoodLove-640.gif)
 
 ## Built With
 
@@ -32,18 +30,24 @@ https://thai-streetfood-love.herokuapp.com/
 -   Express.js
 -   PostgreSQL
 -   AWS(S3)
+-   Axios
 
 ## Features
 
-![Create Playlist - Process](readmegifs/Gif_1_640px_CreatePlaylist.gif)
-
-### Displaying Audio Features from every Track from the created Playlist
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+-   Uploading Pictures
+    -   with each Upload User must add a Username, Title and Description
+-   Commenting and chatting on each Picture
+-   Picture Pagination at the bottom of the page
+-   Hashroute Navigation
 
 ## Features to be added
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+-   Responsive Design
+-   Registration and Login Functionality, Account and Profile Creation
+-   Adding Tags to Pictures
+-   Searching Image through Tags and Picture Titles
+-   Next and Previous buttons on Image Showmodal
+-   Deleting Pictures
 
 ## Authors
 
@@ -55,4 +59,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
--   Thank god for PostgreSQL
+-   Thank god for PostgreSQL and Postico
